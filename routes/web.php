@@ -23,6 +23,9 @@ Route::get('/review', 'ReviewController@create')->name('create');
 
 Route::post('/review/store','ReviewController@store')->name('store');
 
+Route::get('review/like/{id}','ReviewController@like')->name('review.like');
+Route::get('review/like/{id}','ReviewController@like')->name('review.unlike');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

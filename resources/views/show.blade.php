@@ -22,6 +22,13 @@
 @else
         <img class='book-image' src="{{ asset('images/dummy.png') }}">
 @endif
+<div>
+  @if($review->is_liked_by_auth_user())
+    <a href="{{ route('review.unlike', ['id' => $review->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
+  @else
+    <a href="{{ route('review.like', ['id' => $review->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
+  @endif
+</div>
       </aside>
     </div>
     <a href="{{ route('index') }}" class='btn btn-info btn-back mb20'>一覧へ戻る</a>

@@ -8,6 +8,11 @@ use App\Review;
 
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified'])->only(['like','unlike']);
+    }
+    
     public function index()
     {
     	$reviews = Review::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
@@ -51,6 +56,28 @@ class ReviewController extends Controller
 		return redirect('/')->with('flash_message', '投稿が完了しました');
 
         
+    }
+    
+    public function like($id)
+    {
+        Like::create([
+          'review_id' => $id,
+          'user_id' => Auth::id(),
+        ]);
+        
+        session()->flash('success', 'You Liked the Review.');
+
+        return redirect()->back();
+    }
+    
+    public function unlike($id)
+    {
+      $like = Like::where('review_id', $id)->where('user_id', Auth::id())->first();
+      $like->delete();
+    
+      session()->flash('success', 'You Unliked the Review.');
+    
+      return redirect()->back();
     }
     
 }
