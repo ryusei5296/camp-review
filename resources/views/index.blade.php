@@ -23,8 +23,16 @@
 	                <p class='description'>
 	                    {{ $review->body }}
 	                </p>
-	                
+	            @if($review->is_liked_by_auth_user())
+				  <a href="{{ route('review.unlike', ['id' => $review->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
+				@else
+				  <a href="{{ route('review.like', ['id' => $review->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
+				@endif
+	                <br>
 	            <a href="{{ route('show', ['id' => $review->id ]) }}" class='btn btn-secondary detail-btn'>詳細を読む</a>
+	            
+	            
+				
 	            </div>
 	        </div>
 	    </div>

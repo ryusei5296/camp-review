@@ -21,7 +21,7 @@
 	            <div class="card-body">
 	              <div class="form-group">
 	                <label>本のタイトル</label>
-	                <input type='text' class='form-control' name='title' placeholder='タイトルを入力'>
+	                <input type='text' name='title' placeholder='タイトルを入力'>
 	              </div>
 	              <div class="form-group">
 	              <label>レビュー本文</label>
