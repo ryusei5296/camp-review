@@ -17,6 +17,9 @@ Route::get('/','ReviewController@index')->name('index');
 
 Route::get('/show/{id}', 'ReviewController@show')->name('show');
 
+Route::get('/like/{id}', 'ReviewController@like')->name('review.like');
+Route::get('/unlike/{id}', 'ReviewController@unlike')->name('review.unlike');
+
 Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/review', 'ReviewController@create')->name('create');
