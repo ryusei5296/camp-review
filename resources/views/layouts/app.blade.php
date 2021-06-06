@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class='navbar-logo' src="{{ asset('images/logo.png') }}">
+                    <img class='navbar-logo' src="{{ asset('images/canp.jpg') }}">
                     
                     {{ config('app.name', 'Laravel') }}
                 </a>
