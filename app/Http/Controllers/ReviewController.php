@@ -8,6 +8,8 @@ use App\Review;
 
 use App\Like;
 
+use App\Comment;
+
 class ReviewController extends Controller
 {
     public function __construct()
@@ -85,4 +87,23 @@ class ReviewController extends Controller
       return redirect()->back();
     }
     
+    public function res($id)
+    {
+      $review = Review::where('id', $id)->where('status', 1)->first();
+      $comments = Comment::where('review_id',$id)->orderBy('created_at')->paginate(8);
+	
+	    return view('res', compact('review'),compact('comments'));
+    }
+    
+    
+    public function res_store(Request $request,$id)
+    {
+      
+        $post = $request->all();
+        $data = ['review_id' => $id, 'description' => $post['description'], 'user_id'=>\Auth::id()];
+        
+        Comment::insert($data);
+
+        return redirect('/res/'.$id);
+    }
 }

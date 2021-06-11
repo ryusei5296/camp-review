@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/57526824a8.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,6 +24,7 @@
     
     <link href="{{ asset('css/utility.css') }}" rel="stylesheet">
     
+    
     @yield('css')
     
 </head>
@@ -31,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class='navbar-logo' src="{{ asset('images/canp.jpg') }}">
+                    <i class="fas fa-campground "></i>
                     
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -86,7 +88,7 @@
             </div>
         </nav>
 
-        <main class="main">
+        <main class="main imgback">
             <!-- フラッシュメッセージ -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb30">

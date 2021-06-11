@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/sample.css') }}">
 @endsection
 
 @section('content')
@@ -31,7 +32,8 @@
 				@else
 				  <a href="{{ route('review.like', ['id' => $review->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
 				@endif
-	            <a href="" class="btn btn-primary">コメントする</a>
+				
+	            <a href="{{ route('res', ['id' => $review->id]) }}" class="btn btn-primary">コメントする</a>
 	            
 	            
 				
