@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/sample.css') }}">
 @endsection
 
 @section('content')
@@ -16,20 +17,23 @@
 	            	@if(!empty($review->image))
 			            <div class='image-wrapper'><img class='book-image' src="{{ asset('storage/images/'.$review->image) }}"></div>
 			        @else
-		                <div class='image-wrapper'><img class='book-image' src="{{ asset('images/dummy.png') }}"></div>
+		                <div class='image-wrapper'><img class='book-image' src="{{ asset('images/canp.jpg') }}"></div>
 	                @endif
 	                
 	                <h3 class='h3 book-title'>{{ $review->title }}</h3>
 	                <p class='description'>
 	                    {{ $review->body }}
 	                </p>
-	            @if($review->is_liked_by_auth_user())
+	 
+	            <a href="{{ route('show', ['id' => $review->id ]) }}" class='btn btn-secondary detail-btn'>詳細を読む</a>
+	            <br>
+	             @if($review->is_liked_by_auth_user())
 				  <a href="{{ route('review.unlike', ['id' => $review->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
 				@else
 				  <a href="{{ route('review.like', ['id' => $review->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $review->likes->count() }}</span></a>
 				@endif
-	                <br>
-	            <a href="{{ route('show', ['id' => $review->id ]) }}" class='btn btn-secondary detail-btn'>詳細を読む</a>
+				
+	            <a href="{{ route('res', ['id' => $review->id]) }}" class="btn btn-primary">コメントする</a>
 	            
 	            
 				

@@ -26,6 +26,10 @@ Route::get('/review', 'ReviewController@create')->name('create');
 
 Route::post('/review/store','ReviewController@store')->name('store');
 
+Route::get('/res/{id}','ReviewController@res')->name('res');
+
+Route::post('/res/{id}/store', 'ReviewController@res_store')->name('res-store');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
