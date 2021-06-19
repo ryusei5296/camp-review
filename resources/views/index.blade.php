@@ -35,8 +35,13 @@
 				
 	            <a href="{{ route('res', ['id' => $review->id]) }}" class="btn btn-primary">コメントする</a>
 	            
+	            @if($review->user->id == \Auth::id())
 	            
-				
+		            <a href="{{ route('edit',['id' => $review->id]) }}" class="btn btn-success">編集する</a>
+		            
+		            <a href="{{ route('delete',['id' => $review->id]) }}" class="btn btn-danger">削除する</a>
+		        @endif
+		        
 	            </div>
 	        </div>
 	    </div>

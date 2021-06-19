@@ -88,7 +88,7 @@
             </div>
         </nav>
 
-        <main class="main imgback">
+        <main class="main">
             <!-- フラッシュメッセージ -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb30">
@@ -99,7 +99,7 @@
             @yield('content')
         </main>
         <footer class='footer p20'>
-          <small class='copyright'>Laravel Book Reviews 2019 copyright</small>
+          <small class='copyright'>Camp Reviews 2021 copyright</small>
         </footer>
     </div>
 </body>
