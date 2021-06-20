@@ -36,6 +36,8 @@ Route::get('/edit/{id}', 'ReviewController@edit')->name('edit');
 
 Route::post('/edit/{id}', 'ReviewController@update')->name('update');
 
+Route::get('/mypage/{id}', 'ReviewController@mypage')->name('mypage');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

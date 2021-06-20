@@ -146,4 +146,12 @@ class ReviewController extends Controller
       return redirect('/');
       
     }
+    
+    public function mypage($id)
+    {
+      
+      $reviews = Review::where('status', 1)->where('user_id', \Auth::id())->orderBy('created_at', 'DESC')->paginate(9);
+      
+	    return view('mypage', compact('reviews'));
+    }
 }

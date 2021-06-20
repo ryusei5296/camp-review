@@ -83,6 +83,11 @@
                                 </div>
                             </li>
                         @endguest
+                        @if(!empty(Auth::user()))
+                            <li class="nav-item">
+                                <a href="{{ route('mypage',['id' => Auth::user()->id ]) }}"　class="nav-link">マイページ</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

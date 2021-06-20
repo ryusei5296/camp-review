@@ -4998,10 +4998,11 @@ input[type=button].btn-block {
           flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
+  background-image: url(https://www.sozailab.jp/db_img/sozai/33431/71c52a5389e5bfcfbee787d80ac5fd6b.jpg);
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.7rem;
 }
 
 .card > hr {
