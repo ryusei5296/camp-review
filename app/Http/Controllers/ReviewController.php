@@ -19,11 +19,29 @@ class ReviewController extends Controller
     
     public function index()
     {
+      
     	$reviews = Review::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
     	
     	return view('index',compact('reviews'));
     }
     
+    public function search(Request $request)
+    {
+      $post = request()->query('search');
+      
+      if($post)
+      {
+        
+       $reviews = Review::where('status',1)->where('title', 'LIKE', "%{$post}%")->paginate(9); 
+       
+      } else {
+        
+       $reviews = Review::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+       
+      };
+      
+      return view('index',compact('reviews','post'));
+    }
     
     
     public function show($id)

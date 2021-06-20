@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/','ReviewController@index')->name('index');
+Route::get('/search', 'ReviewController@search')->name('search');
 
 Route::get('/show/{id}', 'ReviewController@show')->name('show');
 

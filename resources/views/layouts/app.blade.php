@@ -44,8 +44,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
+                    <form method='GET' action="{{route('search')}}" class="form-inline my-2 my-lg-0 ml-2">
+                        @csrf
+                        <div class="form-group">
+                        <input type="search" class="form-control mr-sm-2" name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
+                        </div>
+                        <input type="submit" value="検索" class="btn btn-info">
+                    </form>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
