@@ -44,8 +44,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
+                    <form method='GET' action="{{route('search')}}" class="form-inline my-2 my-lg-0 ml-2">
+                        @csrf
+                        <div class="form-group">
+                        <input type="search" class="form-control mr-sm-2" name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
+                        </div>
+                        <input type="submit" value="検索" class="btn btn-info">
+                    </form>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -83,12 +90,17 @@
                                 </div>
                             </li>
                         @endguest
+                        @if(!empty(Auth::user()))
+                            <li class="nav-item">
+                                <a href="{{ route('mypage',['id' => Auth::user()->id ]) }}"　class="nav-link">マイページ</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="main imgback">
+        <main class="main">
             <!-- フラッシュメッセージ -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb30">
@@ -99,7 +111,7 @@
             @yield('content')
         </main>
         <footer class='footer p20'>
-          <small class='copyright'>Laravel Book Reviews 2019 copyright</small>
+          <small class='copyright'>Camp Reviews 2021 copyright</small>
         </footer>
     </div>
 </body>

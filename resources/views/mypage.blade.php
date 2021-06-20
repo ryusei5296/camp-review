@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+<h1 class='pagetitle'>マイページ</h1>
 
 <div class="row justify-content-center">
 	
@@ -48,7 +49,9 @@
 	    </div>
 	    
 	@endforeach 
+	
 </div>
+ <a href="{{ route('index') }}" class='btn btn-info btn-back back-btn mb20'>一覧へ戻る</a>
 
 {{ $reviews->links() }}
 

@@ -19,11 +19,29 @@ class ReviewController extends Controller
     
     public function index()
     {
+      
     	$reviews = Review::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
     	
     	return view('index',compact('reviews'));
     }
     
+    public function search(Request $request)
+    {
+      $post = request()->query('search');
+      
+      if($post)
+      {
+        
+       $reviews = Review::where('status',1)->where('title', 'LIKE', "%{$post}%")->paginate(9); 
+       
+      } else {
+        
+       $reviews = Review::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+       
+      };
+      
+      return view('index',compact('reviews','post'));
+    }
     
     
     public function show($id)
@@ -105,5 +123,53 @@ class ReviewController extends Controller
         Comment::insert($data);
 
         return redirect('/res/'.$id);
+    }
+    
+    public function edit($id){
+      
+      $data = Review::findOrFail($id);
+      
+ 
+      #viewに連想配列を渡す
+      return view('edit',['message' => '編集フォーム','data' => $data]);
+    
+    }
+    
+    public function update(Request $request, $id){
+      
+      $post = Review::findOrFail($id);
+        
+      if($request->hasFile('image')){
+        
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->image = $request->image;
+      
+      }else{
+      	$post->title = $request->title;
+        $post->body = $request->body;
+      }
+      
+      
+        
+		  $post->save();
+      
+      return redirect('/')->with('flash_message', '編集が完了しました');
+    }
+    
+    public function delete($id){
+      
+      $post = Review::where('id', $id)->where('status', 1)->delete();
+  
+      return redirect('/');
+      
+    }
+    
+    public function mypage($id)
+    {
+      
+      $reviews = Review::where('status', 1)->where('user_id', \Auth::id())->orderBy('created_at', 'DESC')->paginate(9);
+      
+	    return view('mypage', compact('reviews'));
     }
 }

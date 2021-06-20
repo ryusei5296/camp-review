@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/','ReviewController@index')->name('index');
+Route::get('/search', 'ReviewController@search')->name('search');
 
 Route::get('/show/{id}', 'ReviewController@show')->name('show');
 
@@ -29,6 +30,14 @@ Route::post('/review/store','ReviewController@store')->name('store');
 Route::get('/res/{id}','ReviewController@res')->name('res');
 
 Route::post('/res/{id}/store', 'ReviewController@res_store')->name('res-store');
+
+Route::get('/delete/{id}', 'ReviewController@delete')->name('delete');
+
+Route::get('/edit/{id}', 'ReviewController@edit')->name('edit');
+
+Route::post('/edit/{id}', 'ReviewController@update')->name('update');
+
+Route::get('/mypage/{id}', 'ReviewController@mypage')->name('mypage');
 
 });
 
