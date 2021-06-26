@@ -50,7 +50,7 @@
                         @csrf
                         <div class="form-group">
                         @if(!empty($post))
-                            <input type="search" class="form-control mr-sm-2" name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
+                            <input type="search" class="form-control mr-sm-2 " name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
                         @else
                             <input type="search" class="form-control mr-sm-2" name="search" placeholder="キーワードを入力" aria-label="検索...">
                         @endif
@@ -103,6 +103,7 @@
                 </div>
             </div>
         </nav>
+        <div></div>
 
         <main class="main">
             <!-- フラッシュメッセージ -->
