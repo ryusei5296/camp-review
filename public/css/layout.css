@@ -13,15 +13,15 @@
     /*background-color: #33CC33;*/
     
 
-    width: 100%;
-    height:100vh;
+    
     background-image: url(../images/yurucam_3.png);  
     background-position: center center; 
     background-repeat: no-repeat;  
     background-attachment: fixed; 
     background-size: cover;
-    min-height: 85vh;
+    min-height: 90vh;
     padding: 30px 5%;
+    
   
  }
 
