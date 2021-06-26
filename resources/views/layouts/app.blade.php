@@ -30,7 +30,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <i class="fas fa-campground "></i>
@@ -49,7 +49,11 @@
                     <form method='GET' action="{{route('search')}}" class="form-inline my-2 my-lg-0 ml-2">
                         @csrf
                         <div class="form-group">
-                        <input type="search" class="form-control mr-sm-2" name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
+                        @if(!empty($post))
+                            <input type="search" class="form-control mr-sm-2" name="search" value="{{ $post }}" placeholder="キーワードを入力" aria-label="検索...">
+                        @else
+                            <input type="search" class="form-control mr-sm-2" name="search" placeholder="キーワードを入力" aria-label="検索...">
+                        @endif
                         </div>
                         <input type="submit" value="検索" class="btn btn-info">
                     </form>
@@ -110,7 +114,7 @@
             
             @yield('content')
         </main>
-        <footer class='footer p20'>
+        <footer class='footer p10 fixed-bottom'>
           <small class='copyright'>Camp Reviews 2021 copyright</small>
         </footer>
     </div>
