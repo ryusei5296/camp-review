@@ -1,16 +1,18 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7ddeba741f8e05b4afee561d3c77bee14ddbfc5c
-# Camp reviewについて
+
+# キャンプレビュー△について
+http://3.139.45.210
 
 Camp reviewはキャンパーさんの行ったキャンプ場を共有するキャンプ共有アプリです。
+このアプリは以下のサイトを参考にして大枠を作り、追加機能を付けました。
 
 https://www.techpit.jp/courses/9
-<<<<<<< HEAD
-=======
-# laravel-book-reviews
-github flowの実践のための追記１
->>>>>>> six-comit
-=======
->>>>>>> 7ddeba741f8e05b4afee561d3c77bee14ddbfc5c
+
+
+削除、編集、コメント、検索、いいね機能を付け加えました。
+
+
+・テスト用 
+
+メールアドレス: shima@rin.com
+
+パスワード : 12345678
